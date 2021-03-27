@@ -1,0 +1,46 @@
+<section>
+
+    <h2>Editar uma Postagem</h2>
+
+    <form class="form-style" action="/post/store" method="POST">
+        {{#if error_message}}
+            <div class="alert-error">
+                <p>{{error_message}}</p>
+            </div>
+        {{/if}}
+        <div>
+            <label for="txt_title">titulo</label>
+            <input id="txt_title" type="text" name="title"  placeholder="Titulo da postagem" value="{{post.title}}" />
+        </div>
+
+        <div>
+            <label for="txt_slug">slug</label>
+            <input id="txt_slug" type="text" name="slug"  placeholder="Slug da postagem" value="{{post.slug}}"/>
+        </div>
+
+        <div>
+            <label for="txt_content">Conteúdo</label>
+            <textarea name="content" id="txt_content" cols="30" rows="10" placeholder="Conteúdo da postagem">{{post.content}}</textarea>
+        </div>
+            
+        <div>
+            <label for="select_category">Categoria</label>
+            <select class="input-field" id="select_category" name="category">
+
+                {{#if post.category}}
+                        <option value="{{post.category._id}}"  selected="selected">{{post.category.name}}</option>
+                {{/if}}
+
+                {{#each categories}}  
+                    <option value="{{_id}}">{{name}}</option>
+                {{else}}
+                    <option value="0">Categoria Indefinida</option>
+                {{/each}}
+               
+            </select>
+        </div>
+
+        <input type="submit" value="Salvar"> 
+    </form>
+
+</section>

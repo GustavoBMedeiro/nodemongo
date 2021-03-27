@@ -1,0 +1,21 @@
+<section>
+    <h2>Listagem de Postagens</h2>
+    {{#each posts}}
+        <article>
+            <header>
+                <h2>{{title}}</h2>
+                <h3>{{slug}}</h3>
+            </header>
+                <p>{{content}}</p>
+                <small>Categoria : {{category.name}}</small>
+            <footer>
+                <small>{{createdAt}}</small>
+            </footer>
+            <a href="/post/edit/{{_id}}"><button>Editar</button></a>
+        </article>
+    {{else}}
+        <article>
+            <p>Não existem posts registrados ainda.</p>
+        </article>
+    {{/each}}
+</section>

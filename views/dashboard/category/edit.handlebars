@@ -1,0 +1,27 @@
+<section>
+
+    <h2>Editar a Categoria {{category.name}}</h2>
+
+    <form class="form-style" action="/category/update?_method=PUT" method="POST">
+
+        {{#if error_message}}
+            <div class="alert-error">
+                <p>{{error_message}}</p>
+            </div>
+        {{/if}}
+        
+        <div>
+            <input  type="hidden" name="_id" value="{{category._id}}" />
+            <label for="txt_name">Nome</label>
+            <input id="txt_name" type="text" name="name"  placeholder="Nome da Categoria"  value="{{category.name}}" />
+        </div>
+
+        <div>
+            <label for="txt_description">Descrição</label>
+            <textarea name="description" id="txt_description" cols="30" rows="10" placeholder="Descrição da categoria">{{category.description}}</textarea>
+        </div>
+
+        <input type="submit" value="Salvar">
+    </form>
+
+</section>

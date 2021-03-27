@@ -1,0 +1,45 @@
+<section class="container">
+    
+    <div class="card center-align">
+        <div class="row center-align">
+            <div class=" center-align">
+            <h1>Cadastro</h1>
+
+            {{#if error_message}}
+                <div class="alert-error">
+                    <p>{{error_message}}</p>
+                </div>
+            {{/if}}
+            
+            <form class="white center-align" action="/auth/cadastrar" method="POST">
+
+                <div class="input-field">
+                    <label for="txt_email">Nome</label>
+                    <input type="text" name="name">
+                </div>
+
+                <div class="input-field">
+                    <label for="txt_email">Email</label>
+                    <input type="email" name="email">
+                </div>
+            
+                <div class="input-field">
+                    <label for="txt_password">Senha</label>
+                    <input type="password" name="password">
+                </div>
+            
+                <div class="input-field">
+                    <label for="txt_password_confirm">Confirme à Senha</label>
+                    <input type="password" name="password_confirm">
+                </div>
+            
+                <button class="btn green light-3" type="submit">Cadastrar</button>
+            </form>
+        </div>
+         
+        </div>
+        
+
+    </div>
+   
+</section>

@@ -1,0 +1,40 @@
+<section class="container">
+    <h1 class="center-align">Listagem de Categorias</h1>
+    {{#if success_message}}
+            <div class="alert-success">
+                <p>{{success_message}}</p>
+            </div>
+    {{/if}}
+
+    {{#each categories}}
+        <article class="card white s12 center-align">
+            <header>
+                <h3>{{name}}</h3>
+            </header>
+            <p>{{description}}</p>
+            <footer class="card">
+                <small>Criado em {{createdAt}}</small>
+                <div class="row">
+                   
+                    <form action="/category/delete?_method=DELETE" method="POST" class="right">
+                        <input type="hidden" name="id" value="{{_id}}">
+                        <button class="red btn-floating" type="submit"><i class="material-icons">delete</i></button>
+                    </form>
+
+                     <button class="right blue btn-floating"><a href="/category/edit/{{_id}}"><i class="material-icons">edit</i></a></button>
+                </div>
+            </footer>
+           
+        </article>
+     
+          
+    {{else}}
+
+        <article>
+            <p>Não existe nenhuma categoria no banco de dados ainda.</p>
+        </article>
+
+    {{/each }}
+    
+   
+</section>

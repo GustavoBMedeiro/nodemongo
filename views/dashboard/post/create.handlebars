@@ -1,0 +1,39 @@
+<section>
+
+    <h2>Crie uma nova Postagem</h2>
+
+    <form class="form-style" action="/post/store" method="POST">
+        {{#if error_message}}
+            <div class="alert-error">
+                <p>{{error_message}}</p>
+            </div>
+        {{/if}}
+        <div>
+            <label for="txt_title">titulo</label>
+            <input id="txt_title" type="text" name="title"  placeholder="Titulo da postagem" />
+        </div>
+
+        <div>
+            <label for="txt_slug">slug</label>
+            <input id="txt_slug" type="text" name="slug"  placeholder="Slug da postagem" />
+        </div>
+
+        <div>
+            <label for="txt_content">Conteúdo</label>
+            <textarea name="content" id="txt_content" cols="30" rows="10" placeholder="Conteúdo da postagem"></textarea>
+        </div>
+
+        <div class="input-field">
+            <select name="category">
+                {{#each categories}}
+                    <option value="{{_id}}">{{name}}</option>
+                {{else}}
+                    <option value="0">Categoria Indefinida</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <input class="waves-effect waves-light btn-large" type="submit" value="Salvar">
+    </form>
+
+</section>
